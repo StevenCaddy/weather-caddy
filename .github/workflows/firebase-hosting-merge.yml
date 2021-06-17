@@ -18,7 +18,7 @@ jobs:
           touch .env
           echo "REACT_APP_OPEN_WEATHER_API_ID=$OPEN_WEATHER_API_ID" >> .env
       - name: Run Build
-      - run: npm ci && npm run build
+        run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
