@@ -1,9 +1,13 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { useGetWeatherData } from '../queries/weather';
 import './Home.css';
+import Temperature from "../components/temperature/Temperature";
 
 const Home: React.FC = () => {
+
+  const { data: weatherData } = useGetWeatherData();
+
   return (
     <IonPage>
       <IonHeader>
@@ -17,7 +21,11 @@ const Home: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        <div>
+          <Temperature label="Low" value={weatherData?.main.temp_min}/>
+          <Temperature label="Current" value={weatherData?.main.temp}/>
+          <Temperature label="High" value={weatherData?.main.temp_max}/>
+        </div>
       </IonContent>
     </IonPage>
   );
