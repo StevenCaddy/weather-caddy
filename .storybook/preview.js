@@ -26,13 +26,13 @@ const IonWrapper = ({ children }) => {
   const queryClient = new QueryClient();
 
   return (
-      <QueryClientProvider client={queryClient}>
-        <IonApp>
-          <IonPage>
-            <IonReactRouter>{children}</IonReactRouter>
-          </IonPage>
-        </IonApp>
-      </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <IonApp>
+        <IonPage>
+          <IonReactRouter>{children}</IonReactRouter>
+        </IonPage>
+      </IonApp>
+    </QueryClientProvider>
   );
 };
 
