@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useGetWeatherData } from '../queries/weather';
-import './Home.css';
 import Temperature from '../components/temperature/Temperature';
 
 const Home: React.FC = () => {
