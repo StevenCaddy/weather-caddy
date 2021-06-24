@@ -38,38 +38,3 @@ jobs:
           projectId: weather-caddy
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-
-  build_and_release_desktop:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v1
-      - name: Create environment file
-        env:
-          OPEN_WEATHER_API_ID: '${{ secrets.OPEN_WEATHER_API_ID }}'
-          SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
-        run: |
-          touch .env
-          echo "REACT_APP_OPEN_WEATHER_API_ID=$OPEN_WEATHER_API_ID" >> .env
-          echo "REACT_APP_ENVIRONMENT=Production" >> .env
-          echo "REACT_APP_SENTRY_DSN=$SENTRY_DSN" >> .env
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - name: Install Snapcraft
-        uses: samuelmeuli/action-snapcraft@v1
-        if: startsWith(matrix.os, 'ubuntu')
-        with:
-          snapcraft_token: ${{ secrets.SNAPCRAFT_TOKEN }}
-      - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          package_root: electron
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}

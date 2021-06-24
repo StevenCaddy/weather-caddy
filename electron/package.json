@@ -1,6 +1,6 @@
 {
   "name": "weather-caddy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An awesome weather app",
   "main": "./build/index.js",
   "scripts": {
