@@ -10,6 +10,8 @@
     "@capacitor/ios": "^3.0.1",
     "@ionic/react": "^5.6.9",
     "@ionic/react-router": "^5.6.9",
+    "@sentry/react": "^6.7.2",
+    "@sentry/tracing": "^6.7.2",
     "firebase": "^8.6.8",
     "ionicons": "^5.5.2",
     "postcss": "^8.2.4",
