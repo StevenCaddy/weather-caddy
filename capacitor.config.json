@@ -1,5 +1,5 @@
 {
-  "appId": "jlane.weathercaddy.app",
+  "appId": "com.jlane.weathercaddy",
   "appName": "weather-caddy",
   "bundledWebRuntime": false,
   "npmClient": "npm",

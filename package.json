@@ -1,6 +1,6 @@
 {
   "name": "weather-caddy",
-  "description": "An Ionic project",
+  "description": "An awesome weather app",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

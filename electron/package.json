@@ -1,7 +1,7 @@
 {
   "name": "weather-caddy",
-  "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
+  "version": "0.0.1",
+  "description": "An awesome weather app",
   "main": "./build/index.js",
   "scripts": {
     "build": "tsc",
@@ -25,8 +25,8 @@
   "author": "",
   "license": "MIT",
   "build": {
-    "appId": "com.example.capacitor-app",
-    "productName": "Capacitor App",
+    "appId": "com.jlane.weathercaddy",
+    "productName": "Weather Caddy",
     "files": [
       "assets/*",
       "build/*",
