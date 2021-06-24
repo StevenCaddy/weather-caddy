@@ -1,6 +1,6 @@
 {
   "name": "weather-caddy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An awesome weather app",
   "main": "./build/index.js",
   "scripts": {
@@ -18,12 +18,10 @@
     "electron-builder": "^22.9.1",
     "typescript": "~4.0.5"
   },
-  "keywords": [
-    "capacitor",
-    "electron"
-  ],
-  "author": "",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlane9/weather-caddy.git"
+  },
   "build": {
     "appId": "com.jlane.weathercaddy",
     "productName": "Weather Caddy",

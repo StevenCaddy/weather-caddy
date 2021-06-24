@@ -1,7 +1,7 @@
 {
   "name": "weather-caddy",
   "description": "An awesome weather app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "dependencies": {
     "@capacitor-community/electron": "^1.4.2",
@@ -64,6 +64,10 @@
     "prettier": "^2.3.1",
     "react-scripts": "4.0.3",
     "start-server-and-test": "^1.12.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlane9/weather-caddy.git"
   },
   "scripts": {
     "build": "react-scripts build",
