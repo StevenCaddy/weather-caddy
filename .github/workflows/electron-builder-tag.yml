@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - name: Run Capacitor Build
+        run: npm ci && npm run build && npx cap sync @capacitor-community/electron
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v1
         if: startsWith(matrix.os, 'ubuntu')
