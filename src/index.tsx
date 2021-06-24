@@ -7,12 +7,11 @@ import { ENVIRONMENT, SENTRY_DSN } from './declarations/constants';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-
 Sentry.init({
-    dsn: SENTRY_DSN,
-    integrations: [new Integrations.BrowserTracing()],
-    tracesSampleRate: 1.0,
-    environment: ENVIRONMENT
+  dsn: SENTRY_DSN,
+  integrations: [new Integrations.BrowserTracing()],
+  tracesSampleRate: 1.0,
+  environment: ENVIRONMENT,
 });
 
 ReactDOM.render(
