@@ -45,6 +45,7 @@
     "@storybook/node-logger": "^6.3.0",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.3.0",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.9",
@@ -59,6 +60,8 @@
     "chokidar-cli": "^2.1.0",
     "cypress": "^7.6.0",
     "eslint": "^7.29.0",
+    "husky": "4.3.8",
+    "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.5",
     "prettier": "^2.3.1",
@@ -96,6 +99,14 @@
     "storybook": "start-storybook -p 6006 -s public",
     "test": "react-scripts test",
     "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --write"
   },
   "eslintConfig": {
     "extends": [
