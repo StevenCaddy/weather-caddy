@@ -38,7 +38,7 @@
     "workbox-streams": "^6.1.5"
   },
   "devDependencies": {
-    "@capacitor/cli": "^3.0.1",
+    "@capacitor/cli": "^3.0.2",
     "@storybook/addon-actions": "^6.3.0",
     "@storybook/addon-essentials": "^6.3.0",
     "@storybook/addon-links": "^6.3.0",
