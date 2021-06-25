@@ -86,6 +86,7 @@
     "lint": "eslint --ext .js,.mjs,.jsx,.ts,.tsx src --color",
     "lint:fix": "eslint --ext .js,.mjs,.jsx,.ts,.tsx src --fix",
     "prebuild": "npm run build:tailwind",
+    "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "release:mac": "NODE_ENV=production npm run build:electron && npm run --prefix electron electron:build-mac",
     "release:storybook": "storybook-to-ghpages",

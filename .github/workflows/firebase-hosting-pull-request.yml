@@ -23,7 +23,8 @@ jobs:
           echo "REACT_APP_OPEN_WEATHER_API_ID=$OPEN_WEATHER_API_ID" >> .env
           echo "REACT_APP_ENVIRONMENT=Beta" >> .env
           echo "REACT_APP_SENTRY_DSN=$SENTRY_DSN" >> .env
-      - name: Run Build
-        run: npm ci && npm run build
+      - run: npm ci
+      - run: npm run prettier
+      - run: npm run build
       - name: Run Tests
         run: npm test -- --watchAll=false

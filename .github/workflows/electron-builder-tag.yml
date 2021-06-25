@@ -4,13 +4,12 @@ on:
     tags:
       - v0.*
 jobs:
-
   build_and_release_desktop:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out Git repository
