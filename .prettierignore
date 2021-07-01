@@ -116,8 +116,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Prettier
+.prettierignore
+
 # Ionic artifacts:
 build
 android
 ios
 electron/app/static/
+public/
