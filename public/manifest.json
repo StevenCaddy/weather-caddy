@@ -1,6 +1,13 @@
 {
-  "short_name": "Weather Caddy",
   "name": "Weather Caddy",
+  "short_name": "Weather Caddy",
+  "description": "An awesome weather app",
+  "version": "0.0.5",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "assets/icon/favicon.png",
@@ -11,17 +18,13 @@
       "src": "assets/icon/icon-192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "maskable"
+      "purpose": "any"
     },
     {
       "src": "assets/icon/icon.png",
       "type": "image/png",
-      "sizes": "512x512",
+      "sizes": "512x512 192x192 144x144",
       "purpose": "maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  ]
 }
