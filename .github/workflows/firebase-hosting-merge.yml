@@ -32,7 +32,7 @@ jobs:
           echo "REACT_APP_ENVIRONMENT=Production" >> .env
           echo "REACT_APP_SENTRY_DSN=$SENTRY_DSN" >> .env
           echo "REACT_APP_API_KEY=$FIREBASE_API_KEY" >> .env
-          ehco "REACT_APP_AUTH_DOMAIN=weather-caddy.firebaseapp.com" >> .env
+          echo "REACT_APP_AUTH_DOMAIN=weather-caddy.firebaseapp.com" >> .env
           echo "REACT_APP_DATABASE_URL=https://weather-caddy.firebaseio.com" >> .env
           echo "REACT_APP_PROJECT_ID=weather-caddy" >> .env
           echo "REACT_APP_STORAGE_BUCKET=weather-caddy.appspot.com" >> .env
