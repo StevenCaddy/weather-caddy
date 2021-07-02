@@ -46,9 +46,9 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
           curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli releases new --finalize -p weather-caddy "${GITHUB_SHA}"
-          sentry-cli releases -p weather-caddy files "${GITHUB_SHA}" upload-sourcemaps build/
-          sentry-cli releases set-commits "${GITHUB_SHA}" --commit jlane9/weather-caddy
+          sentry-cli releases --org john-lane new --finalize -p weather-caddy "${GITHUB_SHA}"
+          sentry-cli releases --org john-lane -p weather-caddy files "${GITHUB_SHA}" upload-sourcemaps build/
+          sentry-cli releases --org john-lane set-commits "${GITHUB_SHA}" --commit jlane9/weather-caddy
       - name: Deploy to Production
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
