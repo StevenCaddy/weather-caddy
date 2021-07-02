@@ -41,6 +41,14 @@ jobs:
           echo "REACT_APP_MEASUREMENT_ID=$FIREBASE_MEASUREMENT_ID" >> .env
       - name: Run Build
         run: npm ci && npm run build
+      - name: Upload source maps to Sentry
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          curl -sL https://sentry.io/get-cli/ | bash
+          sentry-cli releases new --finalize -p weather-caddy "${GITHUB_SHA}"
+          sentry-cli releases -p weather-caddy files "${GITHUB_SHA}" upload-sourcemaps build/
+          sentry-cli releases set-commits "${GITHUB_SHA}" --commit jlane9/weather-caddy
       - name: Deploy to Production
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -50,3 +58,14 @@ jobs:
           projectId: weather-caddy
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+      - name: Create Sentry release
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          sentry-cli releases --org john-lane deploys "${GITHUB_SHA}" new -e Production
+      - uses: chrnorm/deployment-action@v1.2.0
+        with:
+          initial_status: success
+          token: ${{ github.token }}
+          target_url: https://weather-caddy.web.app
+          environment: Production
