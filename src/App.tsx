@@ -24,6 +24,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/override.css';
 
 /* Tailwind */
 import './tailwind.output.css';

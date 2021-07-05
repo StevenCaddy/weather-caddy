@@ -8,7 +8,7 @@ export interface TemperatureProps {
 const Temperature: React.FC<TemperatureProps> = ({ label, value }) => {
   return (
     <div>
-      {label}: <span>{value ? value : '---'}</span> F
+      {label} <span>{value ? value : '---'}</span> F
     </div>
   );
 };

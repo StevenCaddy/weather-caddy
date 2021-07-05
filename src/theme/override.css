@@ -1,0 +1,6 @@
+ion-toolbar {
+  --background: transparent !important;
+  --ion-color-base: transparent !important;
+  --border-color: transparent;
+  --background-color: transparent !important;
+}
