@@ -43,3 +43,8 @@ jobs:
       - run: npm run build
       - name: Run Tests
         run: npm test -- --watchAll=false
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEATHER_CADDY }}'
+          projectId: weather-caddy
