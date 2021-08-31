@@ -1,43 +1,32 @@
 import React, { useState } from 'react';
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonSearchbar, IonToolbar } from '@ionic/react';
 import { useGetWeatherData } from '../queries/weather';
 import Temperature from '../components/temperature/Temperature';
-import { menuOutline, addOutline } from 'ionicons/icons';
 import Adjective from '../components/adjective/adjective';
 import TimeStamp from '../components/time stamp/TimeStamp';
 import Gradient from '../components/gradient/gradient';
 
 const Home: React.FC = () => {
-  const { data: weatherData } = useGetWeatherData();
+  const [searchText, setSearchText] = useState<string | undefined>();
+  const { data: weatherData, refetch } = useGetWeatherData(searchText);
   const weatherID = weatherData?.weather[0].id;
-  const [searchText, setSearchText] = useState('');
+
   if (!weatherID) {
     return <div></div>;
   }
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonSearchbar value={searchText} onIonChange={(e) => setSearchText(e.detail.value!)}></IonSearchbar>
-          <IonButtons slot="start">
-            <IonButton>
-              <IonIcon slot="icon-only" icon={menuOutline} />
-            </IonButton>
-          </IonButtons>
-          <IonButtons slot="end">
-            <IonButton>
-              <IonIcon slot="icon-only" icon={addOutline} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense" translucent={true}>
-          <IonToolbar>
-            <IonTitle size="large">{weatherData?.name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent fullscreen={true}>
         <Gradient weatherID={weatherID}>
+          <IonHeader>
+            <IonToolbar>
+              <IonSearchbar
+                value={searchText}
+                onIonBlur={() => refetch()}
+                onIonChange={(e) => setSearchText(e.detail.value!)}
+              ></IonSearchbar>
+            </IonToolbar>
+          </IonHeader>
           <div>
             <div>
               <TimeStamp value={weatherData?.dt} timeZone={weatherData?.timezone} />

@@ -3,4 +3,13 @@ ion-toolbar {
   --ion-color-base: transparent !important;
   --border-color: transparent;
   --background-color: transparent !important;
+  --color: white;
+}
+
+ion-searchbar {
+  --box-shadow: transparent !important;
+  --background: transparent !important;
+  --icon-color: white;
+  --placeholder-color: white;
+  --color: white;
 }
