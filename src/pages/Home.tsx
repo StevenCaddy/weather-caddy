@@ -5,6 +5,7 @@ import Temperature from '../components/temperature/Temperature';
 import Adjective from '../components/adjective/adjective';
 import TimeStamp from '../components/time stamp/TimeStamp';
 import Gradient from '../components/gradient/gradient';
+import InfoList from '../components/info list/InfoList';
 
 const Home: React.FC = () => {
   const [searchText, setSearchText] = useState<string | undefined>();
@@ -50,6 +51,15 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="pl-2">
+            <InfoList
+              feelsLike={weatherData?.main.feels_like}
+              humidity={weatherData?.main.humidity}
+              pressure={weatherData?.main.pressure}
+              windSpeed={weatherData?.wind.speed}
+              windDeg={weatherData?.wind.deg}
+            />
           </div>
         </Gradient>
       </IonContent>
