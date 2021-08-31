@@ -7,6 +7,8 @@ import TimeStamp from '../components/time stamp/TimeStamp';
 import Gradient from '../components/gradient/gradient';
 import InfoList from '../components/info list/InfoList';
 import Sunset from '../components/sunrise/sunset';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 const Home: React.FC = () => {
   const [searchText, setSearchText] = useState<string | undefined>();
@@ -33,7 +35,7 @@ const Home: React.FC = () => {
             <div>
               <TimeStamp value={weatherData?.dt} timeZone={weatherData?.timezone} />
             </div>
-            <div className="mt-40">
+            <div className="mt-28">
               <div>
                 <Adjective weatherID={weatherID} />
               </div>
@@ -64,6 +66,14 @@ const Home: React.FC = () => {
               />
             </div>
             <div className="flex flex-col justify-center">
+              <div className="flex flex-row space-x-16">
+                <div>
+                  <FontAwesomeIcon icon={faCloudSun} />
+                </div>
+                <div>
+                  <FontAwesomeIcon icon={faCloudMoon} />
+                </div>
+              </div>
               <div className="flex flex-row text-xs pr-6 space-x-10">
                 <div className="flex flex-col">
                   Rise: <Sunset value={weatherData?.sys.sunrise} timeZone={weatherData?.timezone} />
