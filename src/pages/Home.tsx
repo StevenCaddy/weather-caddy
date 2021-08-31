@@ -6,6 +6,7 @@ import Adjective from '../components/adjective/adjective';
 import TimeStamp from '../components/time stamp/TimeStamp';
 import Gradient from '../components/gradient/gradient';
 import InfoList from '../components/info list/InfoList';
+import Sunset from '../components/sunrise/sunset';
 
 const Home: React.FC = () => {
   const [searchText, setSearchText] = useState<string | undefined>();
@@ -52,14 +53,26 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="pl-2">
-            <InfoList
-              feelsLike={weatherData?.main.feels_like}
-              humidity={weatherData?.main.humidity}
-              pressure={weatherData?.main.pressure}
-              windSpeed={weatherData?.wind.speed}
-              windDeg={weatherData?.wind.deg}
-            />
+          <div className="flex flex-row space-x-10">
+            <div className="pl-2 flex flex-col">
+              <InfoList
+                feelsLike={weatherData?.main.feels_like}
+                humidity={weatherData?.main.humidity}
+                pressure={weatherData?.main.pressure}
+                windSpeed={weatherData?.wind.speed}
+                windDeg={weatherData?.wind.deg}
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="flex flex-row text-xs pr-6 space-x-10">
+                <div className="flex flex-col">
+                  Rise: <Sunset value={weatherData?.sys.sunrise} timeZone={weatherData?.timezone} />
+                </div>
+                <div className="flex flex-col">
+                  Set: <Sunset value={weatherData?.sys.sunset} timeZone={weatherData?.timezone} />
+                </div>
+              </div>
+            </div>
           </div>
         </Gradient>
       </IonContent>
