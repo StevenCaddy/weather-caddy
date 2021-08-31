@@ -36,7 +36,7 @@ const Home: React.FC = () => {
                 <Adjective weatherID={weatherID} />
               </div>
               <div className="flex flex-row justify-between">
-                <div className="text-6xl">
+                <div className="text-6xl pl-2">
                   <Temperature label="" value={weatherData?.main.temp} />
                 </div>
                 <div className="flex flex-col justify-center px-8">
