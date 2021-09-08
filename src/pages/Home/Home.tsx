@@ -1,34 +1,70 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonSearchbar, IonToolbar } from '@ionic/react';
-import { useGetWeatherData } from '../queries/weather';
-import Temperature from '../components/temperature/Temperature';
-import Adjective from '../components/adjective/adjective';
-import TimeStamp from '../components/time stamp/TimeStamp';
-import Gradient from '../components/gradient/gradient';
-import InfoList from '../components/info list/InfoList';
-import Sunset from '../components/sunrise/sunset';
+import Temperature from '../../components/temperature/Temperature';
+import Adjective from '../../components/adjective/adjective';
+import TimeStamp from '../../components/time stamp/TimeStamp';
+import Gradient from '../../components/gradient/gradient';
+import InfoList from '../../components/info list/InfoList';
+import Sunset from '../../components/sunrise/sunset';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import { WeatherResponse } from '../../interfaces/weather';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  weatherID: number | null;
+  weatherData?: WeatherResponse;
+  setCity: (city: string | undefined) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ weatherID, weatherData, setCity }) => {
   const [searchText, setSearchText] = useState<string | undefined>();
-  const { data: weatherData, refetch } = useGetWeatherData(searchText);
-  const weatherID = weatherData?.weather[0].id;
+
+  const searchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setCity(searchText);
+  };
 
   if (!weatherID) {
-    return <div></div>;
+    return (
+      <IonPage>
+        <IonContent fullscreen={true}>
+          <Gradient weatherID={weatherID}>
+            <IonHeader className="ion-no-border">
+              <IonToolbar>
+                <form onSubmit={searchSubmit}>
+                  <IonSearchbar
+                    className="searchBar"
+                    value={searchText}
+                    onIonBlur={() => {
+                      setCity(searchText);
+                    }}
+                    onIonChange={(e) => setSearchText(e.detail.value!)}
+                  ></IonSearchbar>
+                </form>
+              </IonToolbar>
+            </IonHeader>
+          </Gradient>
+        </IonContent>
+      </IonPage>
+    );
   }
+
   return (
     <IonPage>
       <IonContent fullscreen={true}>
         <Gradient weatherID={weatherID}>
-          <IonHeader>
+          <IonHeader className="ion-no-border">
             <IonToolbar>
-              <IonSearchbar
-                value={searchText}
-                onIonBlur={() => refetch()}
-                onIonChange={(e) => setSearchText(e.detail.value!)}
-              ></IonSearchbar>
+              <form onSubmit={searchSubmit}>
+                <IonSearchbar
+                  className="searchBar"
+                  value={searchText}
+                  onIonBlur={() => {
+                    setCity(searchText);
+                  }}
+                  onIonChange={(e) => setSearchText(e.detail.value!)}
+                ></IonSearchbar>
+              </form>
             </IonToolbar>
           </IonHeader>
           <div>

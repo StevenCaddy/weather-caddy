@@ -4,6 +4,8 @@ ion-toolbar {
   --border-color: transparent;
   --background-color: transparent !important;
   --color: white;
+  --box-shadow: transparent !important;
+  --icon-color: black;
 }
 
 ion-searchbar {
@@ -11,5 +13,9 @@ ion-searchbar {
   --background: transparent !important;
   --icon-color: white;
   --placeholder-color: white;
-  --color: white;
+  color: black;
+}
+
+.searchBar {
+  color: black;
 }
