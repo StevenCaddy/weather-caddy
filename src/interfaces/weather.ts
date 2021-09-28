@@ -52,3 +52,65 @@ export interface WeatherResponse {
   base: string;
   main: Temperature;
 }
+
+export interface CurrentWeather {
+  dt: number;
+  sunrise: number;
+  sunset: number;
+  temp: number;
+}
+
+export interface HourlyDescription {
+  id: number;
+  main: string;
+  description: string;
+  icon: string;
+}
+
+export interface HourlyWeather {
+  dt: number;
+  temp: number;
+  wind_speed: number;
+  weather: HourlyDescription;
+  pop: number;
+}
+
+export interface DailyTemp {
+  day: number;
+  min: number;
+  max: number;
+  night: number;
+  eve: number;
+  morn: number;
+}
+
+export interface DailyDescription {
+  id: number;
+  main: string;
+  description: string;
+  icon: string;
+}
+
+export interface DailyWeather {
+  dt: number;
+  sunrise: number;
+  sunset: number;
+  moonrise: number;
+  moonset: number;
+  temp: DailyTemp;
+  wind_speed: number;
+  wind_deg: number;
+  weather: DailyDescription;
+  clouds: number;
+  pop: number;
+  rain: number;
+  uvi: number;
+}
+
+export interface WeatherOneCallResponse {
+  lon: number;
+  lat: number;
+  current: CurrentWeather;
+  hourly: Array<HourlyWeather>;
+  daily: Array<DailyWeather>;
+}

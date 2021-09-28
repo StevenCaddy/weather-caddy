@@ -21,7 +21,7 @@ const Gradient: React.FC<GradientProps> = ({ weatherID, children }) => {
   } else if (weatherID && 803 <= weatherID) {
     weatherStyle = 'from-gray-600 via-blue-200 to-gray-200';
   } else {
-    weatherStyle = 'Null';
+    weatherStyle = '';
   }
   return <div className={'min-h-full bg-cover bg-gradient-to-b ' + weatherStyle}>{children}</div>;
 };
