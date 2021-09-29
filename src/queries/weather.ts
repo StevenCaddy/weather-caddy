@@ -19,7 +19,7 @@ export const useGetWeatherData = (city: string = 'Kansas City', options?: UseQue
 
 export const useGetWeatherOneCallData = (coordinates?: Coordinates, options?: UseQueryOptions<WeatherOneCallResponse>) => {
   if (!coordinates) {
-    throw 'No coordinates';
+    throw new Error('No Coordinates');
   }
   return useQuery<WeatherOneCallResponse>(
     'weatherDailyData',

@@ -6,6 +6,7 @@ import TimeStamp from '../../components/time stamp/TimeStamp';
 import Gradient from '../../components/gradient/gradient';
 import InfoList from '../../components/info list/InfoList';
 import Sunset from '../../components/sunrise/sunset';
+import DailyTable from '../../components/daily/DailyTable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { WeatherResponse, WeatherOneCallResponse } from '../../interfaces/weather';
@@ -87,17 +88,17 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               <div>
                 <Adjective weatherID={weatherID} />
               </div>
-              <div className="flex flex-row justify-between">
+              <div className="flex flex-row justify-left">
                 <div className="text-6xl pl-2">
                   <Temperature label="" value={weatherData?.main.temp} />
                 </div>
-                <div className="flex flex-col justify-center px-8">
+                <div className="flex flex-col justify-center px-8 mr-7">
                   <div>
-                    <Temperature label="" value={weatherData?.main.temp_max} />
+                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.max} />
                   </div>
                   <div className="bg-gray-300 w-full h-px"></div>
                   <div>
-                    <Temperature label="" value={weatherData?.main.temp_min} />
+                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.min} />
                   </div>
                 </div>
               </div>
@@ -113,7 +114,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
                 windDeg={weatherData?.wind.deg}
               />
             </div>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center mr-7">
               <div className="flex flex-row space-x-16">
                 <div>
                   <FontAwesomeIcon icon={faCloudSun} />
@@ -132,14 +133,91 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               </div>
             </div>
           </div>
-          <div>
-            <Temperature label="" value={weatherOneCallData?.daily[0].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[1].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[2].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[3].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[4].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[5].temp.max} />
-            <Temperature label="" value={weatherOneCallData?.daily[6].temp.max} />
+          <div className="mt-8">
+            <table className="table-auto text-s border-collapse">
+              <thead>
+                <tr className="border">
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[0].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[1].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[2].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[3].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[4].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[5].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[6].dt} />
+                  </th>
+                  <th className="w-1/8 border">
+                    <DailyTable value={weatherOneCallData?.daily[7].dt} />
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="border">
+                <tr>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[1].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[2].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[3].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[4].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[5].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[6].temp.max} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[7].temp.max} />
+                  </td>
+                </tr>
+                <tr>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[1].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[2].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[3].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[4].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[5].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[6].temp.min} />
+                  </td>
+                  <td className="w-1/8 border">
+                    <Temperature label="" value={weatherOneCallData?.daily[7].temp.min} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </Gradient>
       </IonContent>
