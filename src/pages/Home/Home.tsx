@@ -6,10 +6,10 @@ import TimeStamp from '../../components/time stamp/TimeStamp';
 import Gradient from '../../components/gradient/gradient';
 import InfoList from '../../components/info list/InfoList';
 import Sunset from '../../components/sunrise/sunset';
-import DailyTable from '../../components/daily/DailyTable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { WeatherResponse, WeatherOneCallResponse } from '../../interfaces/weather';
+import DailyForecastTable from '../../components/daily/DailyForecastTable';
 
 interface HomeProps {
   weatherID: number | null;
@@ -84,7 +84,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
             <div>
               <TimeStamp value={weatherData?.dt} timeZone={weatherData?.timezone} />
             </div>
-            <div className="mt-28">
+            <div className="mt-20">
               <div>
                 <Adjective weatherID={weatherID} />
               </div>
@@ -133,92 +133,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               </div>
             </div>
           </div>
-          <div className="mt-8">
-            <table className="table-auto text-s border-collapse">
-              <thead>
-                <tr className="border">
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[0].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[1].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[2].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[3].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[4].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[5].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[6].dt} />
-                  </th>
-                  <th className="w-1/8 border">
-                    <DailyTable value={weatherOneCallData?.daily[7].dt} />
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="border">
-                <tr>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[1].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[2].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[3].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[4].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[5].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[6].temp.max} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[7].temp.max} />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[0].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[1].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[2].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[3].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[4].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[5].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[6].temp.min} />
-                  </td>
-                  <td className="w-1/8 border">
-                    <Temperature label="" value={weatherOneCallData?.daily[7].temp.min} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <DailyForecastTable weatherData={weatherOneCallData?.daily} />
         </Gradient>
       </IonContent>
     </IonPage>

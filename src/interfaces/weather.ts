@@ -100,7 +100,7 @@ export interface DailyWeather {
   temp: DailyTemp;
   wind_speed: number;
   wind_deg: number;
-  weather: DailyDescription;
+  weather: Array<DailyDescription>;
   clouds: number;
   pop: number;
   rain: number;

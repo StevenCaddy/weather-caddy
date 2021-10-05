@@ -17,7 +17,7 @@ const TimeStamp: React.FC<TimeStampProps> = ({ value, timeZone = 0 }) => {
 
   return (
     <>
-      <div>{localDT.format(' ddd Do ')}</div>
+      <div>{localDT.format(' ddd ')}</div>
     </>
   );
 };
