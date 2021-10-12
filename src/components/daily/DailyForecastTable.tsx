@@ -15,7 +15,7 @@ const DailyForecastTable: React.FC<DailyForecastTableProps> = ({ weatherData }) 
     return <React.Fragment />;
   }
   return (
-    <div className="flex flex-row overflow-x-auto overflow-visible no-scrollbar mt-10">
+    <div className="flex flex-row overflow-x-auto overflow-visible no-scrollbar mt-2">
       {weatherData.map((day) => {
         return (
           <div className="flex flex-col mr-3">

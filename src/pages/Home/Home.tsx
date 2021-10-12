@@ -31,7 +31,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
     setCity('');
   };
 
-  if (!weatherID) {
+  if (!weatherID || !weatherOneCallData) {
     return (
       <IonPage>
         <IonContent fullscreen={true}>
@@ -112,6 +112,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
                 pressure={weatherData?.main.pressure}
                 windSpeed={weatherData?.wind.speed}
                 windDeg={weatherData?.wind.deg}
+                pop={weatherOneCallData?.daily[0].pop}
               />
             </div>
             <div className="flex flex-col justify-center mr-7">
@@ -133,7 +134,10 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               </div>
             </div>
           </div>
-          <DailyForecastTable weatherData={weatherOneCallData?.daily} />
+          <div>
+            <div className="mt-8 ml-2 text-2xl">Daily Forecast</div>
+            <DailyForecastTable weatherData={weatherOneCallData?.daily} />
+          </div>
         </Gradient>
       </IonContent>
     </IonPage>

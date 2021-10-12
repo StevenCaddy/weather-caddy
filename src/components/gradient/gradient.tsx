@@ -19,7 +19,7 @@ const Gradient: React.FC<GradientProps> = ({ weatherID, children }) => {
   } else if (weatherID && (801 === weatherID || 802 === weatherID)) {
     weatherStyle = 'from-gray-300 via-blue-400 to-yellow-500';
   } else if (weatherID && 803 <= weatherID) {
-    weatherStyle = 'from-gray-600 via-blue-400 to-gray-400';
+    weatherStyle = 'from-gray-300 via-blue-300 to-gray-250';
   } else {
     weatherStyle = '';
   }

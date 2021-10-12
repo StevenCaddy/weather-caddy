@@ -6,9 +6,11 @@ export interface InfoListProps {
   pressure?: number;
   windSpeed?: number;
   windDeg?: number;
+  pop?: number;
 }
 
-const InfoList: React.FC<InfoListProps> = ({ feelsLike, humidity, pressure, windSpeed, windDeg = 0 }) => {
+const InfoList: React.FC<InfoListProps> = ({ feelsLike, humidity, pressure, windSpeed, windDeg = 0, pop = 0 }) => {
+  pop = pop * 100;
   let windDirection: string;
   if (337.5 < windDeg || windDeg <= 22.5) {
     windDirection = 'North';
@@ -36,6 +38,7 @@ const InfoList: React.FC<InfoListProps> = ({ feelsLike, humidity, pressure, wind
       <div className="leading-4">Pressure: {pressure} hPa</div>
       <div className="leading-4">Wind Speed: {windSpeed} mph</div>
       <div className="leading-4">Wind Direction: {windDirection}</div>
+      <div className="leading-4">Percent Percipitation: {pop.toFixed(0)}%</div>
     </div>
   );
 };

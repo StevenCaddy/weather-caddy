@@ -8,7 +8,7 @@ const PercentPercipitation: React.FC<POPInterface> = ({ value = 0 }) => {
   value = value * 100;
   return (
     <div>
-      <span>{value ? value : '0'}</span>%
+      <span>{value ? value.toFixed(0) : '0'}</span>%
     </div>
   );
 };
