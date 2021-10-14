@@ -19,22 +19,22 @@ const DailyForecastTable: React.FC<DailyForecastTableProps> = ({ weatherData }) 
       {weatherData.map((day) => {
         return (
           <div className="flex flex-col mr-3">
-            <div className="text-center">
+            <div className="text-center text-sm">
               <DayOfWeek value={day.dt} />
             </div>
-            <div className="text-center">
+            <div className="text-center text-sm">
               <DateOfMonth value={day.dt}></DateOfMonth>
             </div>
-            <div className="text-center">
+            <div className="text-center text-xl font-bold">
               <Temperature label="" value={day.temp.max} />
             </div>
-            <div className="text-center">
+            <div className="text-center font-light">
               <Temperature label="" value={day.temp.min} />
             </div>
-            <div className="text-center">
+            <div className="text-center text-xl">
               <DailyIcon weatherDailyID={day.weather[0].id} />
             </div>
-            <div className="text-center">
+            <div className="text-center text-xs">
               <PercentPercipitation value={day.pop} />
             </div>
           </div>

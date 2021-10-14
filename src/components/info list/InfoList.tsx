@@ -33,7 +33,7 @@ const InfoList: React.FC<InfoListProps> = ({ feelsLike, humidity, pressure, wind
   }
   return (
     <div className="text-xs">
-      <div className="leading-4">Feels like: {feelsLike}F</div>
+      <div className="leading-4">Feels like: {feelsLike?.toFixed(0)} F</div>
       <div className="leading-4">Humidity: {humidity}%</div>
       <div className="leading-4">Pressure: {pressure} hPa</div>
       <div className="leading-4">Wind Speed: {windSpeed} mph</div>

@@ -31,7 +31,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
     setCity('');
   };
 
-  if (!weatherID || !weatherOneCallData) {
+  if (!weatherID && !weatherOneCallData) {
     return (
       <IonPage>
         <IonContent fullscreen={true}>
@@ -115,21 +115,27 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
                 pop={weatherOneCallData?.daily[0].pop}
               />
             </div>
-            <div className="flex flex-col justify-center mr-7">
+            <div className="flex flex-col justify-center mt-8 mr-7 w-12 h-12">
               <div className="flex flex-row space-x-16">
-                <div>
+                <div className="text-xl">
                   <FontAwesomeIcon icon={faCloudSun} />
                 </div>
-                <div>
+                <div className="text-xl">
                   <FontAwesomeIcon icon={faCloudMoon} />
                 </div>
               </div>
-              <div className="flex flex-row text-xs pr-6 space-x-10">
-                <div className="flex flex-col">
-                  Rise: <Sunset value={weatherData?.sys.sunrise} timeZone={weatherData?.timezone} />
+              <div className="flex flex-row text-sm pr-6 space-x-12">
+                <div className="flex flex-col w-12">
+                  <div>Rise:</div>
+                  <div>
+                    <Sunset value={weatherData?.sys.sunrise} timeZone={weatherData?.timezone} />
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  Set: <Sunset value={weatherData?.sys.sunset} timeZone={weatherData?.timezone} />
+                <div className="flex flex-col w-12">
+                  <div>Set:</div>
+                  <div>
+                    <Sunset value={weatherData?.sys.sunset} timeZone={weatherData?.timezone} />
+                  </div>
                 </div>
               </div>
             </div>
