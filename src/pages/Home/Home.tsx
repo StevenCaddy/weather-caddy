@@ -31,7 +31,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
     setCity('');
   };
 
-  if (!weatherID && !weatherOneCallData) {
+  if (!weatherID) {
     return (
       <IonPage>
         <IonContent fullscreen={true}>
@@ -84,7 +84,8 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
             <div>
               <TimeStamp value={weatherData?.dt} timeZone={weatherData?.timezone} />
             </div>
-            <div className="mt-20">
+            <div className="mt-5">
+              <div className="mb-5 ml-2 text-3xl">{weatherData?.name}</div>
               <div>
                 <Adjective weatherID={weatherID} />
               </div>
@@ -116,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               />
             </div>
             <div className="flex flex-col justify-center mt-8 mr-7 w-12 h-12">
-              <div className="flex flex-row space-x-16">
+              <div className="flex flex-row space-x-14">
                 <div className="text-xl">
                   <FontAwesomeIcon icon={faCloudSun} />
                 </div>

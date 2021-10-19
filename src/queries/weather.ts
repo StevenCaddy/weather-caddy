@@ -19,6 +19,8 @@ export const useGetWeatherData = (city: string = 'Kansas City', options?: UseQue
 
 export const useGetWeatherOneCallData = (coordinates?: Coordinates, options?: UseQueryOptions<WeatherOneCallResponse>) => {
   if (!coordinates) {
+    //coordinates.lat = 39.0997;
+    //coordinates.lon = -94.5786;
     throw new Error();
     //lat: 39.0997, lon: -94.5786
   }
