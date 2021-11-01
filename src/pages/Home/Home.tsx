@@ -88,11 +88,11 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               <TimeStamp value={weatherData?.dt} timeZone={weatherData?.timezone} />
             </div>
             <div className="mt-5">
-              <div className="mb-5 ml-2 text-3xl">{weatherData?.name}</div>
+              <div className="mb-5 ml-2 text-3xl md:text-5xl md:text-center">{weatherData?.name}</div>
               <div>
                 <Adjective weatherID={weatherID} />
               </div>
-              <div className="flex flex-row justify-left">
+              <div className="flex flex-row justify-left md:justify-center">
                 <div className="text-6xl pl-2">
                   <Temperature label="" value={weatherData?.main.temp} />
                 </div>
@@ -108,7 +108,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               </div>
             </div>
           </div>
-          <div className="flex flex-row space-x-10">
+          <div className="flex flex-row space-x-10 md:justify-center">
             <div className="pl-2 flex flex-col">
               <InfoList
                 feelsLike={weatherData?.main.feels_like}
@@ -144,8 +144,8 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               </div>
             </div>
           </div>
-          <div>
-            <div className="mt-8 ml-2 text-2xl">Daily Forecast</div>
+          <div className="md:justify-center">
+            <div className="mt-8 ml-2 text-2xl md:text-center md:text-3xl">Daily Forecast</div>
             <DailyForecastTable weatherData={weatherOneCallData?.daily} />
           </div>
         </Gradient>

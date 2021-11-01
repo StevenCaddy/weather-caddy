@@ -45,7 +45,7 @@ const Adjective: React.FC<AdjectiveProps> = ({ weatherID }) => {
     weatherIcon = faExclamationCircle;
   }
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row md:justify-center md:text-2xl">
       <div className="px-4">
         <FontAwesomeIcon icon={weatherIcon} />
       </div>

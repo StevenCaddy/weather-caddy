@@ -32,13 +32,13 @@ const InfoList: React.FC<InfoListProps> = ({ feelsLike, humidity, pressure, wind
     windDirection = 'Null';
   }
   return (
-    <div className="text-xs">
-      <div className="leading-4">Feels like: {feelsLike?.toFixed(0)} F</div>
-      <div className="leading-4">Humidity: {humidity}%</div>
-      <div className="leading-4">Pressure: {pressure} hPa</div>
-      <div className="leading-4">Wind Speed: {windSpeed} mph</div>
-      <div className="leading-4">Wind Direction: {windDirection}</div>
-      <div className="leading-4">Percent Percipitation: {pop.toFixed(0)}%</div>
+    <div className="text-xs md:text-lg">
+      <div className="leading-4 md:p-1">Feels like: {feelsLike?.toFixed(0)} F</div>
+      <div className="leading-4 md:p-1">Humidity: {humidity}%</div>
+      <div className="leading-4 md:p-1">Pressure: {pressure} hPa</div>
+      <div className="leading-4 md:p-1">Wind Speed: {windSpeed} mph</div>
+      <div className="leading-4 md:p-1">Wind Direction: {windDirection}</div>
+      <div className="leading-4 md:p-1">Percent Percipitation: {pop.toFixed(0)}%</div>
     </div>
   );
 };
