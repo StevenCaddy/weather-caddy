@@ -5,10 +5,10 @@ export interface TemperatureProps {
   value?: number;
 }
 
-const Temperature: React.FC<TemperatureProps> = ({ label, value }) => {
+const Temperature: React.FC<TemperatureProps> = ({ label, value = 0 }) => {
   return (
     <div>
-      {label} <span>{value ? value : '---'}</span> F
+      {label} <span>{value ? value.toFixed(0) : '---'}</span> F
     </div>
   );
 };
