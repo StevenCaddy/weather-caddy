@@ -46,10 +46,10 @@ const Adjective: React.FC<AdjectiveProps> = ({ weatherID }) => {
   }
   return (
     <div className="flex flex-row md:justify-center md:text-2xl">
-      <div className="px-4">
+      <div className="px-2 ml-4 md:ml-20 md:mr-8">
         <FontAwesomeIcon icon={weatherIcon} />
       </div>
-      <div className="px-8">{weatherText}</div>
+      <div className="px-4 text-lg md:mr-40">{weatherText}</div>
     </div>
   );
 };

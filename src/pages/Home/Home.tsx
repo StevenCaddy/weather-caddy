@@ -109,7 +109,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
             </div>
           </div>
           <div className="flex flex-row space-x-10 md:justify-center">
-            <div className="pl-2 flex flex-col">
+            <div className="pl-2 flex flex-col mt-4">
               <InfoList
                 feelsLike={weatherData?.main.feels_like}
                 humidity={weatherData?.main.humidity}
@@ -120,7 +120,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               />
             </div>
             <div className="flex flex-col justify-center mt-8 mr-7 w-12 h-12">
-              <div className="flex flex-row space-x-14">
+              <div className="flex flex-row space-x-14 mt-4">
                 <div className="text-xl">
                   <FontAwesomeIcon icon={faCloudSun} />
                 </div>
