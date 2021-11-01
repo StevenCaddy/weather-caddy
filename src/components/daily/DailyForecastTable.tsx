@@ -18,7 +18,7 @@ const DailyForecastTable: React.FC<DailyForecastTableProps> = ({ weatherData }) 
     <div className="flex flex-row overflow-x-auto overflow-visible no-scrollbar mt-2">
       {weatherData.map((day) => {
         return (
-          <div className="flex flex-col mr-3">
+          <div className="flex flex-col mr-3" key={day.dt}>
             <div className="text-center text-sm">
               <DayOfWeek value={day.dt} />
             </div>

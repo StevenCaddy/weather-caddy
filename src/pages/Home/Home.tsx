@@ -40,12 +40,15 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
               <IonToolbar>
                 <form onSubmit={searchSubmit}>
                   <IonSearchbar
+                    debounce={50}
                     className="searchBar"
                     value={searchText}
                     onIonBlur={() => {
                       setCity(searchText);
                     }}
-                    onIonChange={(e) => setSearchText(e.detail.value!)}
+                    onIonChange={(e) => {
+                      setSearchText(e.detail.value!);
+                    }}
                   ></IonSearchbar>
                 </form>
               </IonToolbar>
@@ -125,7 +128,7 @@ const Home: React.FC<HomeProps> = ({ weatherID, weatherData, weatherOneCallData,
                   <FontAwesomeIcon icon={faCloudMoon} />
                 </div>
               </div>
-              <div className="flex flex-row text-sm pr-6 space-x-12">
+              <div className="flex flex-row text-sm md:text-lg pr-6 space-x-12">
                 <div className="flex flex-col w-12">
                   <div>Rise:</div>
                   <div>
