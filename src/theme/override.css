@@ -3,4 +3,28 @@ ion-toolbar {
   --ion-color-base: transparent !important;
   --border-color: transparent;
   --background-color: transparent !important;
+  --color: white;
+  --box-shadow: transparent !important;
+  --icon-color: black;
+}
+
+ion-searchbar {
+  --box-shadow: transparent !important;
+  --background: transparent !important;
+  --icon-color: white;
+  --placeholder-color: white;
+  color: black;
+}
+
+.searchBar {
+  color: black;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

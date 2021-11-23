@@ -4,7 +4,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import Home from './pages/Home';
+import HomeLoader from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonRouterOutlet>
             <Route exact path="/home">
-              <Home />
+              <HomeLoader />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />
