@@ -12,7 +12,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@ionic/react": "^5.6.14",
-    "@ionic/react-router": "^5.6.14",
+    "@ionic/react-router": "^6.1.1",
     "@sentry/react": "^6.11.0",
     "@sentry/tracing": "^6.11.0",
     "firebase": "^8.7.0",
