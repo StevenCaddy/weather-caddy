@@ -7,7 +7,7 @@
     "@capacitor-community/electron": "^1.4.2",
     "@capacitor/android": "^3.2.0",
     "@capacitor/core": "^3.2.0",
-    "@capacitor/ios": "^3.2.0",
+    "@capacitor/ios": "^3.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
